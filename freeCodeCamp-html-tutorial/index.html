@@ -96,24 +96,167 @@
 			<hr />
 
 			<article id="url-address-journey">
-				<h3>URLs</h3>
-				<p>What happens to the URL after you hit "enter" on your keyboard?</p>
+				<h3>The URL Journey</h3>
 				<ul>
+					<li>
+						<a
+							href="https://www.freecodecamp.org/news/what-happens-when-you-hit-url-in-your-browser/"
+							target="_blank"
+							>freeCodeCamp,
+							<em>What Happens When You Click On A URL In Your Browser</em></a
+						>
+					</li>
 					<li>
 						<a
 							href="https://www.youtube.com/watch?v=AlkDbnbv7dk"
 							target="_blank"
-							>What Happens When You Type A URL Into Your Browser?</a
+							>ByteByteGo,
+							<em>What Happens When You Type A URL Into Your Browser?</em></a
 						>
 					</li>
 					<li>
 						<a
 							href="https://www.youtube.com/watch?v=67kItGjvRs0"
 							target="_blank"
-							>How Does HTTPS Work?</a
+							>ByteByteGo, <em>How Does HTTPS Work?</em></a
 						>
 					</li>
 				</ul>
+				<p>
+					Think of a URL (Uniform Resource Locator) as an address, and the
+					desired website as the location. Let's say you're out of food to eat,
+					and need to go to the grocery store so you don't starve to death. If
+					you want to drive to the store, then you'll need its address. Same
+					goes for the web. If you want to get to a website, you'll first need
+					its address/URL
+				</p>
+
+				<aside>
+					<details>
+						<summary>
+							Why do we use a URL/domain name instead of just entering its IP
+							address?
+						</summary>
+						<p>
+							Once you enter any URL, the website will then open with its
+							contents. A server is what "serves" it this content. When you
+							enter any URL, you are actually entering its IP address of the
+							computer responsible for serving (hosting) the website's content
+						</p>
+						<p>
+							Think of your phone's contact list. You can't remember
+							<strong>every</strong> phone number in your contact list, but you
+							can remember the person's name you wish to call. Same with IP
+							addresses. You won't be able to rememeber every IP address but you
+							can easily look up its domain name, and the contact list that
+							holds all these addresses is known as DNS (Domain Name System)
+						</p>
+					</details>
+				</aside>
+
+				<p>URL Full Journey:</p>
+				<ol>
+					<li>You enter the URL</li>
+					<li>
+						DNS will provide the corresponding IP address to the URL entered via
+						the process below:
+						<ol type="I">
+							<li>
+								<mark>Browser cache is checked first</mark> since a browser will
+								maintain its DNS records for some time in case you have visited
+								the same website prior. If your browser cache provides
+								unfruitful, then a DNS query will run in your operating system's
+								(OS) cache followed by the router's cache, which also hold data
+								for a period of time
+							</li>
+							<li>
+								If the above step doesn't work, then a DNS query will get help
+								from the <mark>DNS Resolver</mark>, which is your ISP (Internet
+								Service Provider). The browser looks up the IP address using
+								recursive DNS lookup in a very elaborate process, where the
+								information is cached many times along the way
+
+								<aside>
+									<details>
+										<ol type="i">
+											<li>
+												Request is sent to the top or root server of the DNS
+												hierarchy. If you are searching at the TLD (Top Level
+												Domain -- .com, .net, .gov, .org), then the Resolver
+												Server will ask the TLD Server to provide an IP address
+												of the entered domain name
+											</li>
+											<li>
+												Resolver asks TLD to give IP address of the domain name,
+												in which TLD answers by caching the address information
+											</li>
+											<li>
+												Next, once cached, TLD tells Resolver to ask
+												Authoritative Name Server, which is responsible for
+												knowing everything about the domain name
+											</li>
+											<li>
+												Authoritative Name Server provides Resolver with the IP
+												address associated with the entered URL and sends it
+												back to the browser
+											</li>
+											<li>
+												Resolver stores it in cache so that next time, if the
+												same query comes along, then it does not have to go
+												through this laborious process again. It can just
+												provide it via its cache
+											</li>
+										</ol>
+									</details>
+								</aside>
+							</li>
+							<li>
+								Once the IP address is provided, the browser will initiate
+								connection via internet protocol.
+								<mark>TCP/IP is the most common protocol</mark>, and a
+								connection is built between the two using a process called
+								<em>TCP 3-Way Handshake</em>
+								<aside>
+									<details>
+										<ol type="i">
+											<li>
+												Client computer sends a TCP SYN message, asking whether
+												the second computer is open for new connection or not
+											</li>
+											<li>
+												Then, another computer, if open for connection, sends an
+												acknowledgement message with a TCP SYN message as well
+											</li>
+											<li>
+												The first computer receives its message and acknowledges
+												by sending a TCP ACK message
+											</li>
+											<li>
+												NOTE: Above is for HTTP. HTTPS is an encrypted, more
+												secure, and more expensive extension of HTTP protocol.
+												HTTPS uses the aforementioned process along with a
+												certificate check (TLS Handshake), key exchange, and
+												secure data tranmission
+											</li>
+										</ol>
+									</details>
+								</aside>
+							</li>
+						</ol>
+					</li>
+					<li>
+						Connection is now built between client and server, and the browser
+						now renders the HTTP content. Often times, there are additional
+						resources to load such as JavaScript bundles and images. The browser
+						repeats the process above in order to fetch all the other resources
+					</li>
+					<li>
+						The client can now send requests to the server for any of the
+						content it wants to see. The server knows exactly what response it
+						should send (webpage, status-code, cache-control, etc.) and will
+						respond back
+					</li>
+				</ol>
 			</article>
 
 			<hr />
