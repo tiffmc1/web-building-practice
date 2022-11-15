@@ -12,15 +12,18 @@
 		<header id="top-of-page">
 			<a href="index.html">Home</a>
 			<h1>Forms And Inputs</h1>
+			<a
+				href="https://www.w3schools.com/html/html_form_input_types.asp"
+				target="_blank"
+				>List of HTML Input Types</a
+			>
 		</header>
 
 		<hr />
 
 		<main>
+			<h3>Please Fill Out The Questionare Below</h3>
 			<article id="sign-up-form">
-				<h3>Sign-Up Form</h3>
-				<p>Please enter your information below</p>
-
 				<form>
 					<fieldset>
 						<legend>Personal Information</legend>
@@ -30,7 +33,7 @@
 								type="text"
 								name="firstName"
 								id="firstName"
-								placeholder="Ex: Tim"
+								placeholder="Tim"
 								autocomplete="on"
 								required
 								autofocus
@@ -42,9 +45,18 @@
 								type="text"
 								name="lastName"
 								id="lastName"
-								placeholder="Ex: Berners-Lee"
+								placeholder="Berners-Lee"
 								autocomplete="on"
 								required
+							/>
+						</p>
+						<p>
+							<label for="email">Email:</label>
+							<input
+								type="email"
+								name="email"
+								id="email"
+								placeholder="tim.berners-lee@email.com"
 							/>
 						</p>
 						<p>
@@ -63,9 +75,18 @@
 								type="tel"
 								name="phone"
 								id="phone"
-								placeholder="Ex: 5555555555"
-								pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+								placeholder="555-555-5555"
+								pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+								maxlength="12"
 							/>
+						</p>
+						<p>
+							<label for="appt">Best Time Of Day To Reach You:</label>
+							<input type="time" name="appt" id="appt" />
+						</p>
+						<p>
+							<label for="birthday">Birthday:</label>
+							<input type="date" name="birthday" id="birthday" />
 						</p>
 						<p>
 							<label for="decade">Favorite Decade:</label>
@@ -195,6 +216,7 @@
 							id="message"
 							cols="30"
 							rows="10"
+							maxlength="300"
 							placeholder="Type your message here..."
 						></textarea>
 					</fieldset>
